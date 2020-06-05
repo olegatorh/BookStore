@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+    <div id="menuBookPage" class="container">
+        <div class="container d-flex justify-content-center pageMenu">
+            {% if prev_url %}
+                <a href="{{prev_url}}"><img src="static/images/PrevPage.png" width="50" height="50" border="0" alt="PrevPage"></a>
+            {% endif %}
+            <h1>Katalog Page: {{ page }}</h1>
+            {% if next_url %}
+                <a href="{{next_url}}"><img src="static/images/NextPage.png" width="50" height="50" border="0" alt="NextPage"></a>
+            {% endif %}
+        </div>
+        <div class="container ">
+            <div class="d-flex justify-content-around flex-wrap">
+                {% for post in posts %}
+                    <a href="{{post.bookName}}"><div class="item">
+                        <img  src="{{post.BookImgLink}}" width="245" height="300">
+                        <div class="description d-flex flex-column">
+                            <h4>title: {{ post.bookName }}</h4><h4>cost: {{ post.cost }} $</h4>
+                            <p class="d-flex justify-content-around flex-column  flex-wrap"><h5>description:</h5> <h6>{{post.mainDesc()}}</h6></p>
+                        </div>
+                    </div></a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center pageMenu">
+            {% if prev_url %}
+                <a href="{{prev_url}}"><img src="static/images/PrevPage.png" width="50" height="50" border="0" alt="PrevPage"></a>
+            {% endif %}
+            <h1> Katalog Page: {{ page }}</h1>
+            {% if next_url %}
+                <a href="{{next_url}}"><img src="static/images/NextPage.png" width="50" height="50" border="0" alt="NextPage"></a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="d-flex description">
+        <h4>orem Ipsum is simply dummy text of the printing an
+        d typesetting industry. Lorem Ipsum has been the industry
+        's standard dummy text ever since the 1500s, when an unknown printer to
+        ok a galley of type and scrambled it to make a type specimen book. It has surviv
+        ed not only five centuries, but also the leap into electronic typesetting, remaining essent
+        ially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+        </h4>
+    </div>
+{% endblock %}
