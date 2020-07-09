@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+    <div  id="singleBookPage" class="container">
+        <div class="row">
+            <div class="container col-sm"> <img class="img-fluid"  src={{posts.BookImgLink}} height="500" width="500" > </div>
+            <div class="container col-sm">
+                <div class="row"><h3>Book Name:</h3><h3>{{ posts.bookName }}</h3></div>
+                <div class="row"><h3>Author:</h3><h3>{{ posts.author }}</h3></div>
+                <div class="row"><h3>Cost:</h3><h3>{{ posts.cost }}</h3></div>
+                <div class="row"><h3>Amount:</h3><h3>{{ posts.amount }}</h3></div>
+                <div class="row"><h3>Lenght:</h3><h3>{{ posts.lenght }}</h3></div>
+                <div class="row"><h3>Language:</h3><h3>{{ posts.language }}</h3></div>
+                <div class="row"><h3>Rating:</h3><h3>{{ posts.rating }}</h3></div>
+                <form action="" method="post" novalidate>
+                    {% if posts.bookName in user.wish_list %}
+                        <button type="submit" class="btn btn-dark mr-4">This Book Already In Your Wish List</button>
+                    {% else %}
+                        <button type="submit" name="wish_list" class="btn btn-dark mr-4">{{ form.wish_list.label }}</button>
+                    {% endif %}
+
+                    {% if posts.bookName in user.cart %}
+                        <button type="submit"  class="btn btn-dark ml-4">This Book Already In Your Cart</button>
+                    {% else %}
+                        <button type="submit" name="cart" class="btn btn-dark ml-4">{{ form.cart.label }}</button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="container "><h3>Description:</h3><h4>{{ posts.description }}</h4></div>
+        <hr>
+        <div class="container "><h3>Comments:</h3>
+            <h4>{% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </h4>
+        </div>
+        <div id="comments">
+                <ul class="list-unstyled">
+                    <form action="" method="post" novalidate>
+                        {% if current_user.is_authenticated %}
+                            <div class="form-group">
+                              <li class="media">
+                                <img class="mr-3" src="static/images/background.jpeg" alt="Generic placeholder image" height="70" width="100">
+                                <div class="media-body">
+                                  <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" name={{form.body.name}} rows="3"></textarea>
+                                    <button type="submit" class="btn btn-primary mb-2" name={{form.submit.name}}>{{form.submit.label}}</button>
+                                  </div>
+                                </div>
+                              </li>
+                            </div>
+                        {% endif %}
+                    </form>
+                    {% for comment in comments %}
+                        {% if comment.book_id == bookName %}
+                          <li class="media">
+                            <img class="mr-3" src="static/images/background.jpeg" alt="Generic placeholder image" height="70" width="100">
+
+                            <div class="media-body">
+                              <h5 class="mt-0 mb-1">{{ comment.user_name }}, {{ moment(comment.timestamp).fromNow() }}:</h5>
+                                <h5>{{comment.body}}</h5>
+                            </div>
+                          </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}

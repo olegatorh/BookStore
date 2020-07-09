@@ -1,0 +1,271 @@
+#body {
+  width: 100%;
+  background: #2F3640; }
+  #body * {
+    margin-bottom: 0; }
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent; }
+
+#header {
+  height: 36%;
+  background-image: url(/static/images/background.jpeg); }
+  #header .navbarItem, #header .navbarItem1, #header .navbarItemSpecial {
+    display: inline-block;
+    border: 1px solid transparent; }
+  #header .navbarItemSpecial:hover {
+    border-bottom: 1px solid white;
+    border-top: 1px solid white; }
+  #header .navbarItem:hover {
+    border-bottom: 1px solid white; }
+  #header .navbarItem1:hover {
+    border-top: 1px solid white; }
+  #header a {
+    text-decoration: none;
+    height: 10%;
+    font-size: 30px;
+    color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+    outline: none; }
+
+.container {
+  margin-top: 25px;
+  margin-bottom: 25px; }
+  .container a, .container a:hover {
+    outline: none;
+    text-decoration: none;
+    color: black; }
+  .container .item {
+    border-radius: 5px;
+    border: 2px solid #808285;
+    background-color: #2F3640;
+    box-shadow: 0 0 5px 2px;
+    width: 250px;
+    height: auto;
+    max-height: 500px;
+    margin: 25px;
+    outline: none;
+    text-shadow: 0px 0px 4px black; }
+    .container .item img {
+      border-bottom: 1px solid black; }
+    .container .item .description {
+      color: white;
+      margin: 15px;
+      padding-bottom: 10px; }
+
+.pageMenu a {
+  margin-right: 15px;
+  margin-left: 15px; }
+
+.page-footer {
+  background-color: #939598; }
+
+#singleBookPage {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  background: rgba(165, 183, 210, 0.1); }
+  #singleBookPage img {
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px black; }
+  #singleBookPage h3, #singleBookPage h4, #singleBookPage h2 {
+    color: white;
+    margin: 15px;
+    text-shadow: 1px 1px 2px black; }
+  #singleBookPage hr {
+    margin-top: 30px;
+    color: black;
+    height: 3px; }
+
+#menuBookPage {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  padding: 10px;
+  background: rgba(165, 183, 210, 0.1); }
+
+.description {
+  margin: 20px;
+  padding: 10px; }
+
+.page-footer {
+  margin-top: 20px; }
+
+#comments {
+  padding: 20px; }
+  #comments img {
+    border: 0; }
+  #comments button {
+    margin-top: 10px; }
+  #comments .media {
+    margin: 15px; }
+
+#loginPage, #RegisterPage {
+  margin-bottom: 200px;
+  /* STRUCTURE */
+  /* TABS */
+  /* FORM TYPOGRAPHY */
+  /* Simple CSS3 Fade-in Animation */
+  /* OTHERS */ }
+  #loginPage a, #RegisterPage a {
+    color: #92badd;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 400; }
+  #loginPage h2, #RegisterPage h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 40px 8px 10px 8px;
+    color: #cccccc; }
+  #loginPage .wrapper, #RegisterPage .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px; }
+  #loginPage #formContent, #RegisterPage #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    text-align: center; }
+  #loginPage #formFooter, #RegisterPage #formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px; }
+  #loginPage h2.inactive, #RegisterPage h2.inactive {
+    color: #cccccc; }
+  #loginPage h2.active, #RegisterPage h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9; }
+  #loginPage input[type=button], #loginPage input[type=submit], #loginPage input[type=reset], #RegisterPage input[type=button], #RegisterPage input[type=submit], #RegisterPage input[type=reset] {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+  #loginPage input[type=button]:hover, #loginPage input[type=submit]:hover, #loginPage input[type=reset]:hover, #RegisterPage input[type=button]:hover, #RegisterPage input[type=submit]:hover, #RegisterPage input[type=reset]:hover {
+    background-color: #39ace7; }
+  #loginPage input[type=button]:active, #loginPage input[type=submit]:active, #loginPage input[type=reset]:active, #RegisterPage input[type=button]:active, #RegisterPage input[type=submit]:active, #RegisterPage input[type=reset]:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95); }
+  #loginPage input[type=text], #loginPage [type=password], #RegisterPage input[type=text], #RegisterPage [type=password] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px; }
+  #loginPage input[type=password]:focus,
+  #loginPage input[type=text]:focus, #RegisterPage input[type=password]:focus,
+  #RegisterPage input[type=text]:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9; }
+  #loginPage .fadeInDown, #RegisterPage .fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none; } }
+@keyframes fadeInDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none; } }
+  #loginPage .fadeIn, #RegisterPage .fadeIn {
+    opacity: 1;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s; }
+  #loginPage .fadeIn.first, #RegisterPage .fadeIn.first {
+    margin: 20px; }
+  #loginPage .fadeIn.fourth, #RegisterPage .fadeIn.fourth {
+    margin: 20px;
+    background-color: #2F3640; }
+  #loginPage .underlineHover:after, #RegisterPage .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s; }
+  #loginPage .underlineHover:hover, #RegisterPage .underlineHover:hover {
+    color: #0d0d0d; }
+  #loginPage .underlineHover:hover:after, #RegisterPage .underlineHover:hover:after {
+    width: 100%; }
+  #loginPage *:focus, #RegisterPage *:focus {
+    outline: none; }
+  #loginPage #icon, #RegisterPage #icon {
+    width: 60%; }
+
+/*# sourceMappingURL=base.css.map */

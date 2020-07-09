@@ -8,31 +8,50 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     {% endblock %}
 {% endblock %}
+
 {% block body %}
      <div id='body'>
          <div id="header">
             <div  class="navbar">
-                <div class="navbarItem1">
-                    <a>Sing In</a>
-                </div>
-                <div class="navbarItem1">
-                    <a>Register</a>
-                </div>
-                {% if pass %}
-                    <div class="navbarItemSpecial">
-                        <a>My Music</a>
+                {% if  current_user.is_authenticated %}
+                    <div class="navbarItem1">
+                        <a href="/logout">Logout</a>
                     </div>
+                    <div class="navbarItemSpecial">
+                        <a>My Books</a>
+                    </div>
+
                     <div class="navbarItem">
                         <a>Wish List</a>
                     </div>
+
+                    <div class="navbarItem">
+                            <a href="/cart">Cart</a>
+                         </div>
+                {% else %}
+                    {% if title != 'Sing In' %}
+                        <div class="navbarItem1">
+                            <a href="/login">Sing In</a>
+                        </div>
+                    {% endif %}
+                    {% if title != 'Register' %}
+                        <div class="navbarItem1">
+                            <a href="/register">Register</a>
+                        </div>
+                    {% endif %}
                 {% endif %}
-                 <div class="navbarItem">
-                    <a>Cart</a>
-                 </div>
+                {% if title != 'BuySomeMusic' %}
+                    <div class="navbarItemSpecial">
+                        <a href="/index">Home page</a>
+                    </div>
+                {% endif %}
+
             </div>
         </div>
+
         {% block content %}
         {% endblock %}
+
          {% block footer%}
             <footer class="page-footer font-small blue">
               <div class="footer-copyright text-center py-3">© 2020 Copyright:
