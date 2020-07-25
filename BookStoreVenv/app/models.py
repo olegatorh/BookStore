@@ -33,8 +33,6 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    cart = db.Column(db.String(100))
-    wish_list = db.Column(db.String(100))
 
     def __repr__(self):
         return f"id:{self.id}, username:{self.username}, email:{self.email}"
@@ -44,6 +42,16 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+
+class CartAndWish(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, db.ForeignKey('user.username'))
+    cart = db.Column(db.String(100))
+    wish_list = db.Column(db.String(100))
+
+    def __repr__(self):
+        return f"id:{self.id}, username:{self.username}, cart:{self.cart}, wishList:{self.wish_list}."
 
 
 class Comments(db.Model):

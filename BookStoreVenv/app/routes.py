@@ -1,7 +1,7 @@
 from app import app, db
 from flask import render_template, request, url_for, redirect, flash
 from werkzeug.urls import url_parse
-from app.models import Posts, User, Comments
+from app.models import Posts, User, Comments, CartAndWish
 from flask_login import current_user, login_user
 from app.forms import LoginForm, RegistrationForm, BookStoreForm
 from flask_login import logout_user, login_required
@@ -65,13 +65,18 @@ def bookPage(bookName):
     comments.reverse()
     if 'cart' in request.form:
         if current_user.is_authenticated:
-            # тут треба змінити базу баних розділити одну таблицю на 2
-            return redirect(f"http://127.0.0.1:5000/{bookName}")
+            cartandwish = CartAndWish(cart=bookName, username=current_user.username)
+            db.session.add(cartandwish)
+            db.session.commit()
+            return redirect(f"http://192.168.1.15:9000/{bookName}")
         else:
             return redirect(url_for("login"))
     elif 'wish_list' in request.form:
         if current_user.is_authenticated:
-            return redirect(f"http://127.0.0.1:5000/{bookName}")
+            cartandwish = CartAndWish(wish_list=bookName, username=current_user.username)
+            db.session.add(cartandwish)
+            db.session.commit()
+            return redirect(f"http://192.168.1.15:9000/{bookName}")
         else:
             return redirect(url_for("login"))
 
@@ -80,7 +85,7 @@ def bookPage(bookName):
         db.session.add(comment)
         db.session.commit()
         flash("your comment is live now!")
-        return redirect(f"http://127.0.0.1:5000/{bookName}")
+        return redirect(f"http://192.168.1.15:9000/{bookName}")
 
 
     return render_template('bookPage.html', title=bookName, posts=posts,
@@ -91,6 +96,19 @@ def bookPage(bookName):
 @login_required
 def cart():
     return render_template("cart.html", title="Cart")
+
+
+@app.route('/wishlist', methods=["GET", "POST"])
+@login_required
+def wishlist():
+    cartandwish = CartAndWish.query.all()
+    return render_template("wishlist.html", title="Wish List", cartandwish=cartandwish)
+
+
+@app.route('/myBooks', methods=["GET", "POST"])
+@login_required
+def myBooks():
+    return render_template("myBooks.html", title="My Books")
 
 
 @app.route('/logout')

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if cartandwish.username == current_user.username %}
+        {% if len(cartandwish.wish_list) > 0  %}
+
+        {% endif %}
+    {% endif %}
+{% endblock %}

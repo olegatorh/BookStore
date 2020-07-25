@@ -6,7 +6,6 @@ from flask_login import LoginManager
 from flask_moment import Moment
 
 app = Flask(__name__)
-app.config['DEBUG'] = True
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
